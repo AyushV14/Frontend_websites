@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tv series & Movies Review</title>
+    <link rel="stylesheet" href="style_login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+</head>
+<body>
+    
+    <div class="container">
+        <video autoplay loop muted class="background-vid" src="production_id_4010131 (2160p) (2).mp4"></video>
+        
+        <!-- <div class="logo"><h3><span>Avproducitons</h3></span></div> -->
+        <div class="card">
+            <h2>Log-in</h2>
+            <form action="#">
+                <div class="form-group">
+                    <!-- <label for="gmail">Gmail</label> -->
+                    <input type="email" class="form-control" id="gmail" name="gmail" placeholder="Enter Gmail">
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="password">Password</label> -->
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <!-- <div class="remember-me">
+                    <label><input type="checkbox">remember me</label>
+                    <a href="#">Forgot password</a>
+                </div> -->
+                <div class="text-center">
+                    <button type="button" onclick="saveData()" id="save-btn">Submit</button>
+                </div>
+                <div class="register-form">
+                    <p>Don't have an account? <a href="sign_up.html">Register here!</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    function saveData(){
+        let gmail,password;
+        gmail=document.getElementById("gmail").value;
+        password=document.getElementById("password").value;
+
+        let user_record=new Array();
+        user_record=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+        if(user_record.some((v)=>{
+            return v.gmail==gmail && v.password==password
+        })){
+            alert("Login sussesful")
+            let current_user=user_record.filter((v)=>{
+                return v.gmail==gmail && v.password==password
+            })[0]
+
+            localStorage.setItem("name",current_user.name);
+            localStorage.setItem("gmail",current_user.gmail);
+            window.location.href="main.html";
+        }
+        else{
+            alert("Login failed");
+        }
+    }
+</script>
+</html>

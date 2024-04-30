@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="actors.xsl"?>
+<actors_movies>
+    <actor>
+        <name>Tom Hanks</name>
+        <dob>1956-07-09</dob>
+        <movies>
+            <movie>
+                <title>Forrest Gump</title>
+                <year>1994</year>
+            </movie>
+            <movie>
+                <title>Cast Away</title>
+                <year>2000</year>
+            </movie>
+            <!-- More movies can be added here -->
+        </movies>
+    </actor>
+    <actor>
+        <name>Meryl Streep</name>
+        <dob>1949-06-22</dob>
+        <movies>
+            <movie>
+                <title>The Devil Wears Prada</title>
+                <year>2006</year>
+            </movie>
+            <movie>
+                <title>Out of Africa</title>
+                <year>1985</year>
+            </movie>
+            <!-- More movies can be added here -->
+        </movies>
+    </actor>
+    <!-- More actors can be added here -->
+</actors_movies>

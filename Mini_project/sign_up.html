@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tv series & Movies Review</title>
+    <link rel="stylesheet" href="style_login.css"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+</head>
+<body>
+    
+    <div class="container">
+        
+            
+        
+        <video autoplay loop muted class="background-vid" src="production_id_4010131 (2160p) (2).mp4"></video>
+
+        <!-- <div class="logo"><h3><span>Avproducitons</h3></span></div> -->
+        <div class="card">
+            <h2>Sign up</h2>
+            <form action="#">
+                <div class="form-group">
+                    <!-- <label for="Name">Name</label> -->
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="gmail">Gmail</label> -->
+                    <input type="email" class="form-control" id="gmail" name="gmail" placeholder="Enter gmail">
+                    <i class='bx bxl-gmail'></i>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="password">Password</label> -->
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="text-center">
+                    <button type="button" onclick="saveData()" id="save-btn">Submit</button>
+                </div>
+                <div class="register-form">
+                    <p>Already have an account? <a href="login.html">Login here!</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    function saveData(){
+        let name,gmail,password;
+        name=document.getElementById('name').value;
+        gmail=document.getElementById('gmail').value;
+        password=document.getElementById('password').value;
+
+        // localStorage.setItem("name",name);
+        // localStorage.setItem("gmail",gmail);
+        // localStorage.setItem("password",password);
+
+        let user_record= new Array();
+        user_record=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+        if(user_record.some((v)=>{
+            return v.gmail==gmail
+        })){
+            alert("Duplicate gmail");
+        }
+        else{
+            user_record.push({
+                "name":name,
+                "gmail":gmail,
+                "password":password
+            })
+            localStorage.setItem("users",JSON.stringify(user_record));
+        }
+    }
+</script>
+</html>
